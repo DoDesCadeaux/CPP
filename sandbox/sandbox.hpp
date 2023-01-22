@@ -13,10 +13,14 @@
 class Sample
 {
 public:
-	char	a1;
-	int 	a2;
-	float	a3;
+	int			public_value;
 
-	Sample(char p1, int p2, float p3);
+	Sample(void);
 	~Sample(void);
+
+	void	setPrivateValue(void);
+	int		getPrivateValue(void);
+
+private:
+	int		_private_value;
 };
