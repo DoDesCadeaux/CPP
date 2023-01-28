@@ -3,7 +3,7 @@
 ################################################################################
 
 
-NAME	= Sandbox
+NAME	= PhoneBook
 CC 		= g++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 # -Imlx POUR MINILIBX
 DFLAGS	= -MMD -MF $(@:.o=.d)
@@ -19,13 +19,13 @@ NOVISU 	= 1 # 1 = no progress bar usefull when tty is not available
 
 FILE_EXTENSION	= .cpp
 
-SRCS_PATH		= ./
+SRCS_PATH		= ./srcs/
 
-INCLUDE_PATH	= ./
+INCLUDE_PATH	= ./includes/
 
-SRCS			=
+SRCS			=	Contact.cpp	PhoneBook.cpp
 
-MAIN			= sandbox.cpp
+MAIN			=	main.cpp
 
 ################################################################################
 #                                  Makefile  objs                              #
@@ -76,7 +76,6 @@ endif
 ifeq ($(shell git rev-parse HEAD &>/dev/null; echo $$?),0)
 	AUTHOR	:= $(shell git log --format='%aN' | sort -u | awk '{printf "%s, ", $$0}' | rev | cut -c 3- | rev)
 	DATE	:= $(shell git log -1 --date=format:"%Y/%m/%d %T" --format="%ad")
-	HASH	:= $(shell git rev-parse --short HEAD)
 endif
 
 define run_and_test
