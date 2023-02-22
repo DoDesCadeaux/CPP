@@ -52,7 +52,7 @@ void PhoneBook::displayContacts() {
 			else
 				std::cout << "|" << std::setw(10) << truncatedString;
 			std::cout <<  std::setw(10) << lastName << "|\n";
-			std::cout << "+--------+---------+---------+---------+" << std::endl;
+			std::cout << "+----------+----------+----------+----------+" << std::endl;
 			contactID++;
 		}
 		else
