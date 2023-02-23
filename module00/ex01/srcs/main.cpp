@@ -12,8 +12,10 @@ int main(void)
 		std::getline(std::cin, input);
 		system("clear");
 		std::cin.clear();
-		if (input == "ADD" && contactID < 8)
+		if (input == "ADD" && contactID <= 8)
 		{
+			if (contactID == 8)
+				contactID = 0;
 			phone.addContact(contactID);
 			contactID++;
 		}
