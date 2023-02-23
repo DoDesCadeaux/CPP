@@ -1,4 +1,5 @@
 #include "Contact.hpp"
+#include "utils.hpp"
 #include <iostream>
 #include <string>
 #include <iomanip>

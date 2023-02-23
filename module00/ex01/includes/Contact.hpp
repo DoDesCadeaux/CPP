@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #define BLACK		"\033[0;30m"
 #define RED			"\033[0;31m"
 #define GREEN		"\033[0;32m"
@@ -32,4 +33,5 @@ public:
 	unsigned int	getID();
 	std::string 	getFirstName();
 	std::string 	getLastName();
+	std::string		getNickName();
 };

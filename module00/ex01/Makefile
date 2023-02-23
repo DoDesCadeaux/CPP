@@ -23,7 +23,7 @@ SRCS_PATH		= ./srcs/
 
 INCLUDE_PATH	= ./includes/
 
-SRCS			=	Contact.cpp	PhoneBook.cpp
+SRCS			=	Contact.cpp	PhoneBook.cpp utils.cpp
 
 MAIN			=	main.cpp
 

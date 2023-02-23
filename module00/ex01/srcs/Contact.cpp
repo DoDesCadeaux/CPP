@@ -102,3 +102,7 @@ std::string Contact::getFirstName() {
 std::string Contact::getLastName() {
 	return (_lastName);
 }
+
+std::string Contact::getNickName() {
+	return (_nickname);
+}

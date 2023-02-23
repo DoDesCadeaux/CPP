@@ -22,41 +22,42 @@ void	PhoneBook::searchContactById() {
 	}
 	catch (const std::invalid_argument&)
 	{
-		std::cout << "Invalid type we need a number value" << std::endl;
+		std::cout << "Invalid type. A number value is needed" << std::endl;
 	}
 	if (contactID < 8 && contactID >= 0)
 		contacts[contactID].getInfo(contactID);
 	else
-		std::cout << "Index should be between 7 and 0" << std::endl;
+		std::cout << "Index should be between 0 and 7" << std::endl;
 }
 
 void PhoneBook::displayContacts() {
-	unsigned int	contactID;
-	std::string		firstName;
-	std::string 	lastName;
-	std::string 	truncatedString;
+	std::string firstname;
+	std::string	lastname;
+	std::string	nickname;
+	int i;
+	int	contactID;
 
-	contactID = 0;
-	while (contactID < 8)
+	i = 0;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "|  Index   |Firstname | Lastname | Nickname |" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	while (i < 8)
 	{
-		lastName = this->contacts[contactID].getLastName();
-		firstName = this->contacts[contactID].getFirstName();
-		if (firstName.size() > 10)
-			truncatedString = firstName.substr(0, 9) + ".";
-		std::cout << truncatedString << "\n";
-		if (!this->contacts[contactID].getFirstName().empty())
+		firstname = contacts[i].getFirstName();
+		lastname = contacts[i].getLastName();
+		nickname = contacts[i].getNickName();
+		contactID = contacts[i].getID();
+		if (!firstname.empty())
 		{
+			firstname = truncateInfo(firstname);
+			lastname = truncateInfo(lastname);
+			nickname = truncateInfo(nickname);
+			std::cout << "|    " << contactID
+				<< "     |" << firstname << "|"
+				<< lastname << "|" << nickname << "|" << std::endl;
 			std::cout << "+----------+----------+----------+----------+" << std::endl;
-			if (firstName.size() <= 10)
-				std::cout << "|" << std::setw(10 - (firstName.size() / 2)) << firstName;
-			else
-				std::cout << "|" << std::setw(10) << truncatedString;
-			std::cout <<  std::setw(10) << lastName << "|\n";
-			std::cout << "+----------+----------+----------+----------+" << std::endl;
-			contactID++;
 		}
-		else
-			contactID = 8;
+		i++;
 	}
 	this->searchContactById();
 	return;
