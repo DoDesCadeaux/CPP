@@ -5,7 +5,7 @@
 
 NAME	= BraiiiiiiinnnzzzZ
 CC 		= g++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 # -Imlx POUR MINILIBX
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 DFLAGS	= -MMD -MF $(@:.o=.d)
 AUTHOR	= dduraku
 DATE	= 15/01/2023

@@ -6,18 +6,10 @@ class Zombie {
 private:
 	std::string	_name;
 public:
-	Zombie() {}
-	void	set_name(std::string zName)
-	{
-		_name = zName;
-	}
-	void	announce()
-	{
-		std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	}
-	~Zombie() {
-		std::cout << _name << "'s Destructor called" << std::endl;
-	}
+	Zombie();
+	void	set_name(std::string zName);
+	void	announce();
+	~Zombie();
 };
 
 Zombie	*newZombie(std::string name);
