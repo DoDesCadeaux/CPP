@@ -10,17 +10,3 @@
 #define WHITE		"\033[0;37m"
 #define NO_COLOUR	"\033[0m"
 
-class Sample
-{
-public:
-	int			public_value;
-
-	Sample(void);
-	~Sample(void);
-
-	void	setPrivateValue(void);
-	int		getPrivateValue(void);
-
-private:
-	int		_private_value;
-};
