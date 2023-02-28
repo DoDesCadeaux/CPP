@@ -1,32 +1,45 @@
 #include "sandbox.hpp"
 
-Sample::Sample() {
-	std::cout << GREEN <<"Constructor Called" << NO_COLOUR << std::endl;
-}
-Sample::~Sample() {
-	std::cout << RED << "Destructor Called" << NO_COLOUR << std::endl;
-}
+class Student {
+private:
+	std::string _login;
 
-void Sample::setPrivateValue() {
-	int value_to_set;
+public:
+	Student(std::string const & login) : _login(login) {}
 
-	std::cout << "Set your value : " << std::endl;
-	std::cin >> value_to_set;
-	std::cin.clear();
-	_private_value = value_to_set;
-}
+	std::string	&getLoginRef()
+	{
+		return (_login);
+	}
 
-int Sample::getPrivateValue() {
-	return (_private_value);
-}
+	std::string const &getLoginConstRef() const
+	{
+		return (_login);
+	}
+
+	std::string *getLoginPtr()
+	{
+		return &(_login);
+	}
+
+	std::string const *getLoginConstPtr() const
+	{
+		return &(_login);
+	}
+};
 
 int main(void)
 {
-	Sample test;
+	Student	dorian = Student("dduraku");
+	Student const gena = Student("gdemoor");
 
-	test.setPrivateValue();
-	test.getPrivateValue();
+	std::cout << dorian.getLoginConstRef() << "   " << gena.getLoginConstRef() << std::endl;
+	std::cout << *(dorian.getLoginConstPtr()) << "   " << *(gena.getLoginConstPtr()) << std::endl;
 
-	std::cout << "Your private value : " << test.getPrivateValue() << std::endl;
+	dorian.getLoginRef() = "ddorian";
+	std::cout << dorian.getLoginConstRef() << std::endl;
+
+	*(dorian.getLoginPtr()) = "dbg";
+	std::cout << *(dorian.getLoginConstPtr()) << std::endl;
 	return (0);
 }
